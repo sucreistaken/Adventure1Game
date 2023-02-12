@@ -4,8 +4,8 @@ public class Game {
     public void start() {
         Scanner scanning = new Scanner(System.in);
         System.out.println("Welcome to basic THE ELDER SCROLLS");
-        Player player = new Player("İpek");
-        System.out.println("Karakter seçiniz" + player.getPlayerName() + "Hanım");
+        Player player = new Player("Merve");
+        System.out.println("Karakter seçiniz " + player.getPlayerName() + " Hanım");
         player.selectChar();
         Location location = null;
         boolean gameover = false;

@@ -4,7 +4,16 @@ import java.util.Scanner;
 
 public class Obstacle {
     Scanner scanner = new Scanner(System.in);
-    Player player = new Player("İpek");
+    Player player;
+    Character character;
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
 
     public Player getPlayer() {
         return player;
@@ -21,7 +30,6 @@ public class Obstacle {
     private int killvalue;
     private int obstacleNumber;
     private String name;
-
 
     private BattleLoc battleLoc;
 
@@ -82,13 +90,14 @@ public class Obstacle {
         this.name = name;
     }
 
-    public Obstacle(String name, int ID, int damage, int health, int killvalue, int obstacleNumber) {
+    public Obstacle(Player player,String name, int ID, int damage, int health, int killvalue, int obstacleNumber) {
         this.name=name;
         this.ID = ID;
         this.damage = damage;
         this.health = health;
         this.killvalue = killvalue;
         this.obstacleNumber = obstacleNumber;
+        this.player=player;
     }
     public void obstacleStats(){
         System.out.println("Obstacle's name 🦇 :" + this.getName());
@@ -101,6 +110,8 @@ public class Obstacle {
 
 
     }
+
+
     public void award(){
         int winsomething = random.nextInt(1,100);
         int winitem = random.nextInt(1,100);
@@ -112,7 +123,7 @@ public class Obstacle {
                 String yesorno = scanner.nextLine();
                 yesorno = yesorno.toUpperCase();
                 if(yesorno.equals("Y")){
-                    getPlayer().weaponChoose(new Gun());
+                    getPlayer().Weapons(new Gun());
                     System.out.println("You take" + this.getPlayer().getWeapon());
                 }else System.out.println("You dropped the item");
             }else if (winitem > 50 && winitem <=80){
@@ -120,15 +131,15 @@ public class Obstacle {
                 String yesorno = scanner.nextLine();
                 yesorno.toUpperCase();
                 if(yesorno.equals("Y")){
-                    getPlayer().weaponChoose(new Sword());
-                    System.out.println("You take" + this.getPlayer().getWeapon());
+                    getPlayer().Weapons(new Sword());
+                    System.out.println("Your block" + this.getPlayer().getWeapon());
                 }
             }else if (winitem > 80 && winitem <=100){
                 System.out.println("Do you want Rifle ? press yes for Y or no for N");
                 String yesorno = scanner.nextLine();
                 yesorno.toUpperCase();
                 if(yesorno.equals("Y")){
-                    getPlayer().weaponChoose(new Rifle());
+                    getPlayer().Weapons(new Rifle());
                     System.out.println("You take" + this.getPlayer().getWeapon());
                 }
             }
@@ -138,24 +149,24 @@ public class Obstacle {
                 String yesorno = scanner.nextLine();
                 yesorno = yesorno.toUpperCase();
                 if(yesorno.equals("Y")){
-                    getPlayer().armorChoose(new LightArmor());
-                    System.out.println("You take" + this.getPlayer().getWeapon());
+                    getPlayer().Armors(new LightArmor());
+                    System.out.println("You take" + this.getPlayer().getBlock());
                 }else System.out.println("You dropped the item");
             }else if(winitem > 50 && winitem <= 80){
                 System.out.println("Do you want Medium Armor? press yes for Y or no for N Armor block is 3🛡 ");
                 String yesorno = scanner.nextLine();
                 yesorno = yesorno.toUpperCase();
                 if(yesorno.equals("Y")){
-                    getPlayer().armorChoose(new MediumArmor());
-                    System.out.println("You take" + this.getPlayer().getWeapon());
+                    getPlayer().Armors(new MediumArmor());
+                    System.out.println("You take" + this.getPlayer().getBlock());
                 }else System.out.println("You dropped the item");
             }else if(winitem > 80 && winitem <= 100){
                 System.out.println("Do you want Heavy Armor? press yes for Y or no for N " + " Armor block is 5🛡" );
                 String yesorno = scanner.nextLine();
                 yesorno = yesorno.toUpperCase();
                 if(yesorno.equals("Y")){
-                    getPlayer().armorChoose(new HeavyArmor());
-                    System.out.println("You take" + this.getPlayer().getWeapon() );
+                    getPlayer().Armors(new HeavyArmor());
+                    System.out.println("You take" + this.getPlayer().getBlock());
                 }else System.out.println("You dropped the item");
             }
         }else if(winsomething > 75 && winsomething <= 100){

@@ -100,10 +100,18 @@ public class Player {
         this.setWeapon(weapons.getWeaponName());
         return false;
     }
+    public boolean Weapons(Weapons weapons) {
+        this.setDamage(getDamage() + weapons.getDamage());
+        this.setWeapon(weapons.getWeaponName());
+        return false;
+    }
+    public void Armors(Armors armors) {
+        this.setBlock(armors.getBlock());
+    }
 
     public void printPlayerInfo() {
         System.out.println(getPlayerName() + "'s infos");
-        System.out.println("Money💵: " + getMoney() + "\n" + "Damage🗡️: " + getDamage() + "\n" + "Block🛡️:" + getBlock() + "\n" + "Health💖: " + getHealty() + "\n" + "Weapon" + getWeapon());
+        System.out.println("Money💵: " + getMoney() + "\n" + "Damage🗡️: " + getDamage() + "\n" + "Block🛡️:" + getBlock() + "\n" + "Health💖: " + getHealty() + "\n" + "Weapon⚔: " + getWeapon());
     }
 
     public void armorChoose(Armors armors) {
